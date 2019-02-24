@@ -3,16 +3,13 @@ import { Route } from 'react-router-dom';
 import Home from './components/home';
 import NavBar from './components/navbar';
 import FecResults from './components/fecResults';
-const API_KEY = "Your api key"
+const API_KEY = process.env.API_KEY || ""
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
+  state = {
       results: "",
       loading: false,
-    }
+      error: ""
   }
 
   getResultsFromFEC = async (queries) => {
