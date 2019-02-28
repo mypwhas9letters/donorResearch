@@ -3,11 +3,11 @@ import { Route } from 'react-router-dom';
 import Home from './components/home';
 import NavBar from './components/navbar';
 import FecResults from './components/fecResults';
-const API_KEY = process.env.API_KEY || ""
+const API_KEY = process.env.REACT_APP_API_KEY
 
 class App extends Component {
   state = {
-      results: "",
+      results: [],
       loading: false,
       error: ""
   }
@@ -20,8 +20,8 @@ class App extends Component {
       var json = await res.json()
       this.setState({results: json.results, loading: false});
     }
-    catch(error){
-      console.log(error);
+    catch(err){
+      this.setState({error: err, loading: false});
     }
   }
 

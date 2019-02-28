@@ -3,30 +3,25 @@ import { Redirect } from 'react-router-dom';
 import listOfCandidates from './dataLists/listOfCandidates'
 
 class Home extends Component {
-  constructor(){
-    super()
-
-    this.state = {
-      params: {
-        firstName: "",
-        lastName: "",
-        contributor_city: "",
-        contributor_zip: "",
-        contributor_state: "",
-        contributor_occupation: "",
-        contributor_employer: "",
-        two_year_transaction_period: "",
-        min_date: "",
-        max_date: "",
-        min_amount: 200,
-        committee_id: "",
-      },
-      searchTerm: "",
-      searchTermRes: "",
-      showModal: false,
-    }
+  state = {
+    params: {
+      firstName: "",
+      lastName: "",
+      contributor_city: "",
+      contributor_zip: "",
+      contributor_state: "",
+      contributor_occupation: "",
+      contributor_employer: "",
+      two_year_transaction_period: "",
+      min_date: "",
+      max_date: "",
+      min_amount: 200,
+      committee_id: "",
+    },
+    searchTerm: "",
+    searchTermRes: "",
+    showModal: false,
   }
-
 
   handleOpenModal = () => {
     this.setState({ showModal: true });
@@ -41,7 +36,6 @@ class Home extends Component {
       event.preventDefault();
     }
   }
-
 
   onChange = (e) => {
     if(e.target.name === "searchTerm" || e.target.name === "searchTermRes" ){
